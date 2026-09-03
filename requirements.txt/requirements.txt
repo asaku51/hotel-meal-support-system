@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-streamlit
-requests
-fpdf
-pydantic
-python-multipart

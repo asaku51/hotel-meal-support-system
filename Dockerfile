@@ -10,4 +10,4 @@ COPY main.py /app/main.py
 
 ENV PORT=8080
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "main.py"]

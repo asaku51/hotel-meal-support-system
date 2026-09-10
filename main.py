@@ -1,8 +1,15 @@
-from backend.meathojyo import app
+FROM python:3.11-slim
 
-import os
+WORKDIR /app
 
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+ENV PYTHONPATH=/app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend /app/backend
+COPY main.py /app/main.py
+
+ENV PORT=8080
+
+CMD ["python", "main.py"]
